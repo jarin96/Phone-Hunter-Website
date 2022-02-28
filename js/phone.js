@@ -35,6 +35,20 @@ const loadPhoneDetail = phoneId => {
         .then(data => displayPhoneDetail(data.data));
 }
 const displayPhoneDetail = detail => {
-    console.log(detail);
+    console.log(detail.mainFeatures);
     const phoneDetails = document.getElementById('phone-details');
+    const div = document.createElement('div');
+    div.classList.add('card');
+    div.innerHTML = `
+    <img src="${detail.image}" class="card-img-top w-50 mx-auto" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">${detail.name}</h5>
+        <p class="card-text">${detail.releaseDate}</p>
+        <h5>${detail.mainFeatures.storage}</h5>
+        <h5>${detail.mainFeatures.displaySize}</h5>
+        <h5>${detail.mainFeatures.chipSet}</h5>
+        <h5>${detail.mainFeatures.memory}</h5>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>`;
+    phoneDetails.appendChild(div);
 }
