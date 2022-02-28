@@ -35,7 +35,7 @@ const loadPhoneDetail = phoneId => {
         .then(data => displayPhoneDetail(data.data));
 }
 const displayPhoneDetail = detail => {
-    console.log(detail.mainFeatures);
+    console.log(detail.others);
     const phoneDetails = document.getElementById('phone-details');
     const div = document.createElement('div');
     div.classList.add('card');
@@ -48,6 +48,13 @@ const displayPhoneDetail = detail => {
         <h5>${detail.mainFeatures.displaySize}</h5>
         <h5>${detail.mainFeatures.chipSet}</h5>
         <h5>${detail.mainFeatures.memory}</h5>
+        <h5>${detail.mainFeatures.sensors}</h5>
+        <h5>${detail.others.Bluetooth}</h5>
+        <h5>${detail.others.GPS}</h5>
+        <h5>${detail.others.NFC}</h5>
+        <h5>${detail.others.Radio}</h5>
+        <h5>${detail.others.USB}</h5>
+        <h5>${detail.others.WLAN}</h5>
         <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>`;
     phoneDetails.appendChild(div);
