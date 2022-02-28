@@ -9,8 +9,10 @@ const searchPhone = () => {
         .then(data => displaySearchResult(data.data));
 }
 const displaySearchResult = phones => {
+    const selectedPhone = phones.slice(0, 20);
+    // console.log(selectedPhone);
     const searchResult = document.getElementById('search-result');
-    phones.forEach(phone => {
+    selectedPhone.forEach(phone => {
         console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col');
@@ -42,20 +44,20 @@ const displayPhoneDetail = detail => {
     div.innerHTML = `
     <img src="${detail.image}" class="card-img-top w-50 mx-auto" alt="...">
     <div class="card-body">
-        <h5 class="card-title">${detail.name}</h5>
-        <p class="card-text">${detail.releaseDate}</p>
-        <h5>${detail.mainFeatures.storage}</h5>
-        <h5>${detail.mainFeatures.displaySize}</h5>
-        <h5>${detail.mainFeatures.chipSet}</h5>
-        <h5>${detail.mainFeatures.memory}</h5>
-        <h5>${detail.mainFeatures.sensors}</h5>
-        <h5>${detail.others.Bluetooth}</h5>
-        <h5>${detail.others.GPS}</h5>
-        <h5>${detail.others.NFC}</h5>
-        <h5>${detail.others.Radio}</h5>
-        <h5>${detail.others.USB}</h5>
-        <h5>${detail.others.WLAN}</h5>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <h5 class="card-title">Name: ${detail.name}</h5>
+        <p class="card-text">Release Date: ${detail.releaseDate}</p>
+        <h5>Storage: ${detail.mainFeatures.storage}</h5>
+        <h5>DisplaySize: ${detail.mainFeatures.displaySize}</h5>
+        <h5>Chipset: ${detail.mainFeatures.chipSet}</h5>
+        <h5>Memory: ${detail.mainFeatures.memory}</h5>
+        <h5>Sensors: ${detail.mainFeatures.sensors}</h5>
+        <h5>Others</h5>
+        <h5>Bluetooth: ${detail.others.Bluetooth}</h5>
+        <h5>GPS: ${detail.others.GPS}</h5>
+        <h5>NFC: ${detail.others.NFC}</h5>
+        <h5>Radio: ${detail.others.Radio}</h5>
+        <h5>USB: ${detail.others.USB}</h5>
+        <h5>WLAN: ${detail.others.WLAN}</h5>
     </div>`;
     phoneDetails.appendChild(div);
 }
