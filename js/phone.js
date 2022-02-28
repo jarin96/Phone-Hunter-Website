@@ -2,16 +2,27 @@ const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
     console.log(searchText);
+    // clear data
     searchField.value = '';
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
-    fetch(url)
-        .then(res => res.json())
-        .then(data => displaySearchResult(data.data));
+    if (searchText === '') {
+        // please write something to display
+    }
+    else {
+        // load Data
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => displaySearchResult(data.data));
+    }
 }
 const displaySearchResult = phones => {
     const selectedPhone = phones.slice(0, 20);
     // console.log(selectedPhone);
     const searchResult = document.getElementById('search-result');
+    searchResult.textContent = '';
+    if (phones.length === 0) {
+        // show no result found
+    }
     selectedPhone.forEach(phone => {
         console.log(phone);
         const div = document.createElement('div');
@@ -39,6 +50,7 @@ const loadPhoneDetail = phoneId => {
 const displayPhoneDetail = detail => {
     console.log(detail.others);
     const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
