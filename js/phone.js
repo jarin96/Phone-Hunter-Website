@@ -1,8 +1,13 @@
 document.getElementById('error-message').style.display = 'none';
 document.getElementById('error').style.display = 'none';
+const toggleSpinner = displayStyle => {
+    document.getElementById('spinner').style.display = displayStyle;
+}
 const searchPhone = () => {
     const searchField = document.getElementById('search-field');
     const searchText = searchField.value;
+    // display Spinner
+    toggleSpinner('block');
     console.log(searchText);
     // clear data
     searchField.value = '';
@@ -52,7 +57,8 @@ const displaySearchResult = phones => {
              </div>
              `;
         searchResult.appendChild(div);
-    })
+    });
+    toggleSpinner('none');
 }
 const loadPhoneDetail = phoneId => {
     console.log(phoneId);
@@ -72,18 +78,19 @@ const displayPhoneDetail = detail => {
     <div class="card-body">
         <h5 class="card-title">Name: ${detail.name}</h5>
         <p class="card-text">Release Date: ${detail.releaseDate ? detail.releaseDate : 'No Release Date Found'}</p>
+        <p>Brand: ${detail.brand}</p>
         <h5>Storage: ${detail.mainFeatures.storage}</h5>
         <h5>DisplaySize: ${detail.mainFeatures.displaySize}</h5>
         <h5>Chipset: ${detail.mainFeatures.chipSet}</h5>
         <h5>Memory: ${detail.mainFeatures.memory}</h5>
         <h5>Sensors: ${detail.mainFeatures.sensors}</h5>
         <h5>Others</h5>
-        <h5>Bluetooth: ${detail.others.Bluetooth}</h5>
-        <h5>GPS: ${detail.others.GPS}</h5>
-        <h5>NFC: ${detail.others.NFC}</h5>
-        <h5>Radio: ${detail.others.Radio}</h5>
-        <h5>USB: ${detail.others.USB}</h5>
-        <h5>WLAN: ${detail.others.WLAN}</h5>
+         <h5>Bluetooth: ${detail.others?.Bluetooth ? detail.others.Bluetooth : 'No Bluetooth Found'}</h5>
+         <h5>GPS: ${detail.others?.GPS ? detail.others.GPS : 'No GPS Found'}</h5>
+         <h5>NFC: ${detail.others?.NFC ? detail.others.NFC : 'No NFC Found'}</h5>
+         <h5>Radio: ${detail.others?.Radio ? detail.others.Radio : 'No Radio Found'}</h5>
+         <h5>USB: ${detail.others?.USB ? detail.others.USB : 'No USB Found'}</h5>
+         <h5>WLAN: ${detail.others?.WLAN ? detail.others.WLAN : 'No WLAN Found'}</h5>
     </div>`;
     phoneDetails.appendChild(div);
 }
