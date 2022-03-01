@@ -8,8 +8,10 @@ const searchPhone = () => {
     searchField.value = '';
     document.getElementById('error-message').style.display = 'none';
     if (searchText === '') {
-        document.getElementById('error').style.display = 'block';
+        document.getElementById('error-message').style.display = 'block';
+        document.getElementById('error').style.display = 'none';
         document.getElementById('search-result').innerText = '';
+        document.getElementById('phone-details').innerText = '';
     }
     else {
         // load Data
@@ -29,6 +31,7 @@ const displaySearchResult = phones => {
     // console.log(selectedPhone);
     const searchResult = document.getElementById('search-result');
     searchResult.textContent = '';
+    document.getElementById('phone-details').innerText = '';
     if (phones.length === 0) {
         document.getElementById('error').style.display = 'block';
     }
