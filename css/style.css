@@ -1,3 +1,15 @@
+/* Google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&family=Poppins:wght@500&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
 #spinner{
     display: none;
+}
+.color{
+    background-image: url('../images/pexels-photo-270686.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 }
