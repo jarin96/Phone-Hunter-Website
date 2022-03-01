@@ -84,7 +84,7 @@ const displayPhoneDetail = detail => {
         <h5>Chipset: ${detail.mainFeatures.chipSet}</h5>
         <h5>Memory: ${detail.mainFeatures.memory}</h5>
         <h5>Sensors: ${detail.mainFeatures.sensors}</h5>
-        <h5>Others</h5>
+        <h5>Others Information</h5>
          <h5>Bluetooth: ${detail.others?.Bluetooth ? detail.others.Bluetooth : 'No Bluetooth Found'}</h5>
          <h5>GPS: ${detail.others?.GPS ? detail.others.GPS : 'No GPS Found'}</h5>
          <h5>NFC: ${detail.others?.NFC ? detail.others.NFC : 'No NFC Found'}</h5>

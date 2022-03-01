@@ -8,8 +8,10 @@ body{
     display: none;
 }
 .color{
-    background-image: url('../images/pexels-photo-270686.jpeg');
+     background-image: url('../images/pexels-photo-270686.jpeg');
     background-repeat: no-repeat;
-    background-size: cover;
-    
+    background-size: cover; 
+     background-color: rgba(0,0,0,.5);
+    background-blend-mode: overlay; 
+
 }
